@@ -3,25 +3,24 @@ fprintf("Qusetion 1 a)\n");
 clc;
 clear ALL;
 n= input("no of iteration : ");
-itI=zeros(n);
-I_error=zeros(n);
-x=zeros(n);
-itI(1)=1./exp(1) -1;
+itI=zeros(n);%iteration of integration
+I_error=zeros(n);% rative error
+x=zeros(n);% no of iteration
+itI(1)=1-(1./exp(1));
 I_error(1)=0;
+x(1)=0;
 
 for it=2:n
     itI(it)=1- (it*(itI(it-1)));
-    fu=@(x)(exp(x).*(x.^it));
+    fu=@(x)(exp(x).*(x.^(it-1)));
     exactI=integral(fu,0,1);
     I_error(it)=abs(exactI -itI(it))./exactI;
-    x(it)=it;
+    x(it)=(it-1);
 end
 figure();
 plot(x,I_error,'r');
 xlabel('x');
 ylabel('error');
-
-
 
 %Q1_b)Given x find sinh(x) and cosh(x) then find e^-x
 fprintf("Question-1_b)\n");
@@ -50,8 +49,15 @@ while (k==1)
     end
 end
 error=0.000012;
-root=bisection_new(fu,ar1,br1,error);
-
+if abs(fu(ar1))> error && abs(fu(br1)) >error
+  root=bisection_new(fu,ar1,br1,error);
+else
+    if fu(ar1)<=error
+        root=ar1;
+    else
+        root=br1;
+    end
+end
 A=1;
 B=(-2)*a;
 C=b;
