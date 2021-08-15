@@ -12,7 +12,7 @@ x(1)=0;
 
 for it=2:n
     itI(it)=1- (it*(itI(it-1)));
-    fu=@(x)(exp(x).*(x.^(it-1)));
+    fu=@(x)(exp(x).*(x.^(it-1))./exp(1));
     exactI=integral(fu,0,1);
     I_error(it)=abs(exactI -itI(it))./exactI;
     x(it)=(it-1);
