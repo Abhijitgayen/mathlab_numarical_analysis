@@ -18,11 +18,10 @@ while(ok==0)
     ylabel('y-axis');
     ok=input("is this graph is ok?(1/0):");
 end
-inroot=input("enter initial root for this equation :");
+in_root=input("enter initial root for this equation :");
 fn=@(x)((1+1i).*x.*tanh(2.*x)-0.5);
 gn=@(x)(tanh(2*x)*(1 + 1i) - x*(2*tanh(2*x)^2 - 2)*(1 + 1i));
 %in_root=0.4+1i.*0.21;
-in_root=complex(0.4,0.21);
 [root,a,step]=Newton_fun(fn,gn,in_root);
 fprintf("one root is %f + (%f)i\n",real(root),imag(root));
 fprintf("onather root is %f - (%f)i\n",real(root),imag(root));
