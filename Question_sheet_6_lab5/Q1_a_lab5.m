@@ -9,15 +9,15 @@ for it=1:n
     y(it)=f(x(it));
 end
 sum=0;
-for i=1:length(x)
+for it=1:length(x)
     p=1;
     for j=1:length(x)
-        if j~=i
-            c = poly(x(j))/(x(i)-x(j));
+        if j~=it
+            c = poly(x(j))/(x(it)-x(j));
             p = conv(p,c);
         end
     end
-    term = p*y(i);
+    term = p*y(it);
     sum= sum + term;
 end
 fprintf("polynomail with coefficient with :\n");
