@@ -1,12 +1,11 @@
 clc;
 clear All;
-
-f1=@(x,y)(((sinh(4*x)-sin(4*y))/(cosh(4*x) + cos(4*y))) - 0.5);
-f2=@(x,y)((sin(4*y)+sin(4*x))/(cosh(4*x) + cos(4*y)));
-f1x=@(x,y)((4*cosh(4*x))/(cosh(4*x) + cos(4*y)) - (4*sinh(4*x)*(sinh(4*x) - sin(4*y)))/(cosh(4*x) + cos(4*y))^2);
-f1y=@(x,y)((4*sin(4*y)*(sinh(4*x) - sin(4*y)))/(cosh(4*x) + cos(4*y))^2 - (4*cos(4*y))/(cosh(4*x) + cos(4*y)));
-f2x=@(x,y)((4*cos(4*x))/(cosh(4*x) + cos(4*y)) - (4*sinh(4*x)*(sin(4*x) + sin(4*y)))/(cosh(4*x) + cos(4*y))^2);
-f2y=@(x,y)((4*cos(4*y))/(cosh(4*x) + cos(4*y)) + (4*sin(4*y)*(sin(4*x) + sin(4*y)))/(cosh(4*x) + cos(4*y))^2);
+f1= @(x, y) x*(sinh(4*x) - sin(4*y))-y*(sinh(4*x) + sin(4*y)) - 0.5*(cosh(4*x) + cosh(4*y));
+f2 =@(x, y) y*(sinh(4*x) - sin(4*y))-x*(sinh(4*x) + sin(4*y)); 
+f1x = @(x,y) 4*x*cosh(x) - sin(4*y) -sinh(4*x)-4*y*cosh(4*x); 
+f1y =@(x,y)sin(4*y)-sinh(4*x)-4*x*cos(4*y)-4*y*cos(4*y); 
+f2x = @(x,y) sinh(4*x) + sin(4*y) +4*x*cosh(4*x) + 4*y*cosh(4*x); 
+f2y = @(x,y) sin(4*y) - sinh(4*x) +4*x*cos(4*y) - 4*y*cosh(4*y); 
 
 onI=input("Number of iteration : ");
 root=zeros();
