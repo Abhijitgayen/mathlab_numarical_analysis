@@ -1,8 +1,4 @@
 function plot_cubic_spline_me(x,s0,s1,s2,s3)
-% plot_cubic_spline(x,s0,s1,s2,s3)
-%
-% plots a cubic spline with break points x 
-% and coefficents s0, s1, s2, s3
 
 n = length(x);
 
