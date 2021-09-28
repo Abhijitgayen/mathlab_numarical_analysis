@@ -1,9 +1,5 @@
 function [s0,s1,s2,s3]=cubic_spline_me(x,y)
 
-if any(size(x) ~= size(y)) || size(x,2) ~= 1
-    error('inputs x and y must be column vectors of equal length');
-end
-
 n = length(x);
 
 h = x(2:n) - x(1:n-1);
