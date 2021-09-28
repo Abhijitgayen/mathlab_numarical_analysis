@@ -1,22 +1,4 @@
 function [s0,s1,s2,s3]=cubic_spline_me(x,y)
-% [s0,s1,s2,s3]=cubic_spline(x,y)
-%
-% computes the coefficents of a cubic spline 
-% interpolant through the data points (x,y)
-%
-% The spline is defined as the piecewise cubic
-% polynomial 
-%
-% S(x) = { Sk(x)    x(k) <= x <= x(k+1)
-%      = { 0        otherwise
-%
-% The cubic polynomial Sk(x) is given by 
-%
-% Sk(x)  = sk0 + sk1*(x-x(k)) + sk2*(x-x(k))^2 + sk3*(x-x(k))^3
-%
-% The coefficents sk0, sk1, sk2, and sk3 for each of the 
-% polynomials are returned in the vectors s0,s1,s2, and s3
-% respectively.
 
 if any(size(x) ~= size(y)) || size(x,2) ~= 1
     error('inputs x and y must be column vectors of equal length');
@@ -34,9 +16,6 @@ upper = h(2:end);
 T = spdiags([lower main upper], [-1 0 1], n-2, n-2);
 rhs = 6*(d(2:end)-d(1:end-1));
 m = T\rhs;
-
-% Use natural boundary conditions where second derivative
-% is zero at the endpoints
 
 m = [ 0; m; 0];
 
