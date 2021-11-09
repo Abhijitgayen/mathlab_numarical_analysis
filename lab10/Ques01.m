@@ -39,6 +39,8 @@ fn_or=@(t)(g*(exp(2*t))/2+(exp(-2*t))/2+c)*exp(-2*t);
 
 error_1=fn_or(1)-w(10)
 error_2=fn_or(2)-w(20)
+error_3=fn_or(1)-w_4(10)
+error_4=fn_or(2)-w_4(20)
 
 
 
